@@ -24,6 +24,10 @@
 *  handle multiple LOGICAL NOT, add cases from docs (84743150)
 *  resolve simple lint-case !!a (5708a4f5)
 
+##### Other Changes
+
+*  update CHANGELOG.md (4bc245e0)
+
 ##### Code Style Changes
 
 *  change prettier config (e5a93822)
