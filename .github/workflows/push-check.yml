@@ -17,5 +17,3 @@ jobs:
             run: npm run test
           - name: Code style check
             run: npm run format:check
-          - name: Commit Linter
-            uses: wagoid/commitlint-github-action@v2.0.3
