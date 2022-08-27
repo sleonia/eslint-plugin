@@ -15,7 +15,7 @@ const rule: Rule.RuleModule = {
         docs: {
             description: 'Make all boolean cast simple',
             category: 'Best Practices',
-            url: 'https://github.com/sleonia/boolean-cast-style',
+            url: 'https://github.com/sleonia/eslint-plugin/blob/master/docs/boolean-cast-style.md',
             recommended: true
         },
         fixable: 'code',

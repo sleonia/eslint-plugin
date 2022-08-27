@@ -1,7 +1,7 @@
-import rule from './rules/boolean-cast-style'
+import booleanCastStyle from './rules/boolean-cast-style'
 
 export = {
     rules: {
-        'boolean-cast-style': rule
+        'boolean-cast-style': booleanCastStyle
     }
 }
