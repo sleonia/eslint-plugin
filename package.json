@@ -12,12 +12,15 @@
         "clean": "rimraf lib",
         "build": "tsc",
         "prettier": "prettier \"*.{js,json,yml,yaml,md}\" \"src/**/*\"",
-        "format": "npm prettier --write",
-        "format:check": "npm prettier --check",
+        "format": "prettier --write \"*.{js,json,yml,yaml,md}\" \"src/**/*\"",
+        "format:check": "prettier --check \"*.{js,json,yml,yaml,md}\" \"src/**/*\"",
         "test": "jest",
         "test:watch": "jest --watch",
         "prepublish": "npm run clean && npm run build",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'other: обновил CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+        "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'other: обновил CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+        "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'other: обновил CHANGELOG.md' && npm version patch && git push origin && git push origin --tags"
     },
     "devDependencies": {
         "@commitlint/cli": "^17.1.1",
