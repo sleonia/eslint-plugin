@@ -24,6 +24,10 @@
 *  handle multiple LOGICAL NOT, add cases from docs (84743150)
 *  resolve simple lint-case !!a (5708a4f5)
 
+##### Bug Fixes
+
+*  @commitlint deps (390aa7f4)
+
 ##### Other Changes
 
 *  update CHANGELOG.md (53855773)
@@ -64,8 +68,13 @@
 *  handle multiple LOGICAL NOT, add cases from docs (84743150)
 *  resolve simple lint-case !!a (5708a4f5)
 
+##### Bug Fixes
+
+*  @commitlint deps (390aa7f4)
+
 ##### Other Changes
 
+*  update CHANGELOG.md (53855773)
 *  update CHANGELOG.md (4bc245e0)
 
 ##### Code Style Changes
