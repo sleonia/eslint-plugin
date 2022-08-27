@@ -1,4 +1,7 @@
 import type { Rule } from "eslint";
+import type { UnaryExpression, Identifier } from 'estree'
+
+export const ERROR_MESSAGE = 'No !! boolean cast operator 🙅'
 
 const rule: Rule.RuleModule = {
     meta: {
@@ -13,8 +16,30 @@ const rule: Rule.RuleModule = {
     },
     create: (context) => {
         void context;
-        return {};
+        return {
+            UnaryExpression(node) {
+                const argument = node.argument as UnaryExpression
+                if (node.operator === '!' && argument?.operator === '!') {
+                    context.report({
+                        node,
+                        message: ERROR_MESSAGE,
+                        fix(fixer: Rule.RuleFixer) {
+                            const range = node.range
+                            const identifierName = (argument.argument as Identifier)?.name
+
+                            if (!range) {
+                                return null
+                            }
+
+                            return [
+                                fixer.replaceTextRange(range, `Boolean(${identifierName})`)
+                            ]
+                        },
+                    })
+                }
+            },
+        };
     },
 };
 
-export = rule;
+export default rule
