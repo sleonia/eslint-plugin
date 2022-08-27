@@ -4,7 +4,7 @@ The `!!` expression may confused and be kind of ninja-code for developers.
 Example of **incorrect** code for this rule:
 ```tsx
 // 🙅‍♀️
-const IS_GEOLOCATION_SUPPORTED = !!navigator?.geolocation?.getCurrentPosition && false
+const IS_VIBRATE_SUPPORTED = !!navigator?.vibrate
 
 const isEmpty = Boolean([1, 2, 3].length)
 ```
@@ -12,7 +12,7 @@ const isEmpty = Boolean([1, 2, 3].length)
 Examples of **correct** code for this rule:
 ```tsx
 // 👍
-const IS_GEOLOCATION_SUPPORTED = Boolean(navigator?.geolocation?.getCurrentPosition)
+const IS_VIBRATE_SUPPORTED = Boolean(navigator?.vibrate)
 
 const isEmpty = Boolean([1, 2, 3].length)
 ```
