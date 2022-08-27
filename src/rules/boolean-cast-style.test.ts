@@ -30,7 +30,7 @@ tester.run('boolean-cast-style', BooleanCastStyleRule, {
         {
             code: '!!(a)',
             errors: [{ message: ERROR_MESSAGE }],
-            output: 'Boolean((a))' // ℹ️ We don't remove your parentheses or format your code. Another rules can make it
+            output: 'Boolean((a))'
         },
         {
             code: 'const b = !!a;',
@@ -46,6 +46,26 @@ tester.run('boolean-cast-style', BooleanCastStyleRule, {
             code: 'String(!!(open && index === Number(someIndex)))',
             errors: [{ message: ERROR_MESSAGE }],
             output: 'String(Boolean((open && index === Number(someIndex))))'
-        }
+        },
+        {
+            code: 'if (!!a) {}',
+            errors: [{ message: ERROR_MESSAGE }],
+            output: 'if (Boolean(a)) {}'
+        },
+        {
+            code: '!!navigator?.vibrate',
+            errors: [{ message: ERROR_MESSAGE }],
+            output: 'Boolean(navigator?.vibrate)'
+        },
+        {
+            code: '!![1, 2, 3].length',
+            errors: [{ message: ERROR_MESSAGE }],
+            output: 'Boolean([1, 2, 3].length)'
+        },
+        {
+            code: '!!!a',
+            errors: [{ message: ERROR_MESSAGE }],
+            output: '!Boolean(a)'
+        },
     ]
 })
