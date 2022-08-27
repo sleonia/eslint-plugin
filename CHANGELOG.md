@@ -1,3 +1,9 @@
+#### 0.1.1 (2022-08-27)
+
+##### Chores
+
+*  add .npmignore (c0851640)
+
 ### 0.1.0 (2022-08-27)
 
 ##### Documentation Changes
