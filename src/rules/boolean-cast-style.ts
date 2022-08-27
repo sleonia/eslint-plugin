@@ -25,11 +25,13 @@ const rule: Rule.RuleModule = {
                         message: ERROR_MESSAGE,
                         fix(fixer: Rule.RuleFixer) {
                             const range = node.range
-                            const identifierName = (argument.argument as Identifier)?.name
 
                             if (!range) {
                                 return null
                             }
+
+                            const sourceCode = context.getSourceCode()
+                            const identifierName = sourceCode.getText(argument, -1)
 
                             return [
                                 fixer.replaceTextRange(range, `Boolean(${identifierName})`)
