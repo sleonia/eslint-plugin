@@ -1,7 +1,7 @@
 # `eslint-plugin-sleonia`
 
 ![github actions](https://github.com/sleonia/eslint-plugin/actions/workflows/push-check.yml/badge.svg)
-[![npm version](https://img.shields.io/npm/v/react-redux.svg?style=flat-square)](https://www.npmjs.com/package/boolean-cast-style)
+[![npm version](https://img.shields.io/npm/v/react-redux.svg?style=flat-square)](https://www.npmjs.com/package/eslint-plugin-sleonia)
 
 ## How to install
 
