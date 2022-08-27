@@ -8,3 +8,4 @@ webstorm.config.js
 core
 core-ts
 build.ts
+docs/**/*.md
