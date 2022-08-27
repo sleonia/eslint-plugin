@@ -4,4 +4,4 @@
 [![Maintenance Status][status-image]][status-url]
 [![NPM version][npm-image]][npm-url]
 
-![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+![github actions](https://github.com/sleonia/boolean-cast-style/actions/workflows/push-check.yml/badge.svg)
