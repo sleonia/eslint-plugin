@@ -1,5 +1,5 @@
 import { RuleTester } from 'eslint'
-import BooleanCastStyleRule, { ERROR_MESSAGE } from './boolean-cast-style'
+import BooleanCastStyleRule, { ERROR_MESSAGE } from '../src/rules/boolean-cast-style'
 
 const tester = new RuleTester({
     parserOptions: {
