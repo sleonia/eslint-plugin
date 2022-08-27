@@ -15,6 +15,7 @@ npm i --save-dev eslint-plugin-sleonia
 // .eslintrc.js
 plugins: ['sleonia'],
 rules: {
-    'sleonia/boolean-cast-style': 'error'
+    'sleonia/boolean-cast-style': 'error',
+    'sleonia/emotion-file-naming': 'error',
 }
 ```
