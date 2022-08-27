@@ -1,3 +1,9 @@
+#### 0.0.2 (2022-08-27)
+
+##### New Features
+
+*  fix naming from rule to plugin, add examples in readme, fix links (d737401e)
+
 #### 0.0.1 (2022-08-27)
 
 ##### Chores
