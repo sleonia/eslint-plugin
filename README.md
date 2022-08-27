@@ -6,7 +6,7 @@
 
 ## How to install
 ```bash
-npm i --save-dev
+npm i --save-dev eslint-plugin-sleonia
 ```
 
 ## How to use
