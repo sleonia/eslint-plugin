@@ -51,5 +51,6 @@
         "commitizen": {
             "path": "./node_modules/cz-conventional-changelog"
         }
-    }
+    },
+    "author": "sleonia <nikita.dontsov@yahoo.com>"
 }
