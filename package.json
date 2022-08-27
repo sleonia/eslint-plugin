@@ -19,9 +19,9 @@
         "format:check": "prettier --check \"*.{js,json,yml,yaml,md}\" \"src/**/*\"",
         "test": "jest",
         "test:watch": "jest --watch",
-        "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'other: обновил CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
-        "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'other: обновил CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
-        "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'other: обновил CHANGELOG.md' && npm version patch && git push origin && git push origin --tags"
+        "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'other: update CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+        "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'other: update CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+        "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'other: update CHANGELOG.md' && npm version patch && git push origin && git push origin --tags"
     },
     "devDependencies": {
         "@commitlint/cli": "^17.1.1",
@@ -36,6 +36,7 @@
         "cz-conventional-changelog": "^3.3.0",
         "eslint": "^7.18.0",
         "eslint-config-prettier": "^8.5.0",
+        "generate-changelog": "^1.8.0",
         "husky": "^8.0.0",
         "jest": "26.6.3",
         "lint-staged": "^13.0.3",
