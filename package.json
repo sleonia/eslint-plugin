@@ -11,13 +11,14 @@
     "scripts": {
         "clean": "rimraf lib",
         "build": "tsc",
+        "prepublish": "npm run clean && npm run build",
+        "prepare": "husky install",
+        "commitlint": "commitlint --edit $1",
         "prettier": "prettier \"*.{js,json,yml,yaml,md}\" \"src/**/*\"",
         "format": "prettier --write \"*.{js,json,yml,yaml,md}\" \"src/**/*\"",
         "format:check": "prettier --check \"*.{js,json,yml,yaml,md}\" \"src/**/*\"",
         "test": "jest",
         "test:watch": "jest --watch",
-        "prepublish": "npm run clean && npm run build",
-        "prepare": "husky install",
         "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'other: обновил CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
         "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'other: обновил CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
         "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'other: обновил CHANGELOG.md' && npm version patch && git push origin && git push origin --tags"

@@ -1,0 +1,21 @@
+name: base-check
+on: [push]
+jobs:
+  base-check:
+      runs-on: ubuntu-latest
+      steps:
+          - uses: actions/checkout@v3
+          - uses: actions/setup-node@v3
+            with:
+              node-version: 18
+              cache: 'npm'
+          - name: Install dependencies
+            run: npm install
+          - name: Check build
+            run: npm run build
+          - name: Check test
+            run: npm run test
+          - name: Code style check
+            run: npm run format:check
+          - name: Commit Linter
+            uses: wagoid/commitlint-github-action@v2.0.3
