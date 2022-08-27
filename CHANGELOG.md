@@ -1,3 +1,40 @@
+### 0.1.0 (2022-08-27)
+
+##### Documentation Changes
+
+*  fix readme url (debc53c8)
+
+##### New Features
+
+*  add emotion-file-naming rule (56e07045)
+
+##### Bug Fixes
+
+*  readme version badge (5001f52e)
+
+##### Code Style Changes
+
+*  prettier for emotion-file-naming.ts (379d4dba)
+*  miss formatter (6072c201)
+
+### 0.1.0 (2022-08-27)
+
+##### Documentation Changes
+
+*  fix readme url (debc53c8)
+
+##### New Features
+
+*  add emotion-file-naming rule (56e07045)
+
+##### Bug Fixes
+
+*  readme version badge (5001f52e)
+
+##### Code Style Changes
+
+*  miss formatter (6072c201)
+
 #### 0.0.2 (2022-08-27)
 
 ##### New Features
