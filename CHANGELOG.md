@@ -1,3 +1,18 @@
+#### 0.2.1 (2022-08-28)
+
+##### Chores
+
+*  add emotion-styled-variables-naming to readme (34d68b4c)
+
+##### Bug Fixes
+
+*  call expression in tagged template expression (cc30b9d7)
+*  trigger on simple "style"-substring (ca05d0ff)
+
+##### Code Style Changes
+
+*  change printWidth (21f61067)
+
 ### 0.2.0 (2022-08-28)
 
 ##### Chores
