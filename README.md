@@ -17,5 +17,6 @@ plugins: ['sleonia'],
 rules: {
     'sleonia/boolean-cast-style': 'error',
     'sleonia/emotion-file-naming': 'error',
+    'sleonia/emotion-styled-variables-naming': 'error',
 }
 ```
