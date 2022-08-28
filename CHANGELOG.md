@@ -1,3 +1,14 @@
+### 0.2.0 (2022-08-28)
+
+##### Chores
+
+*  update CHANGELOG.md (87b28a1c)
+*  add .npmignore (c0851640)
+
+##### New Features
+
+*  add styled-variable check (4e73e5c6)
+
 #### 0.1.1 (2022-08-27)
 
 ##### Chores
