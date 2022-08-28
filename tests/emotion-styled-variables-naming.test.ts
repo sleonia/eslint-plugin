@@ -9,28 +9,33 @@ const tester = new RuleTester({
     }
 })
 
-const valid = {
-    simpleStyled: {
+const valid = [
+    {
         code: 'const HamburgerStyled = styled()'
     },
-
-    styledWithMember: {
+    {
         code: 'const HamburgerStyled = styled.section()'
+    },
+    {
+        code: 'const HamburgerStyled = styled.section``'
+    },
+    {
+        code: 'const HamburgerStyled = styled(Container)``'
     }
-}
+]
 
 tester.run('emotion-styled-variables-naming', EmotionStyledVariablesNamingTest, {
-    valid: [valid.simpleStyled, valid.styledWithMember],
+    valid,
     invalid: [
         {
             code: 'const Hamburger = styled()',
             errors: [{ message: ERROR_MESSAGE }],
-            output: valid.simpleStyled.code
+            output: valid[0].code
         },
         {
             code: 'const StyledHamburger = styled()',
             errors: [{ message: ERROR_MESSAGE }],
-            output: valid.simpleStyled.code
+            output: valid[0].code
         },
         {
             code: 'const StyledHamburger = styled``',
@@ -40,12 +45,17 @@ tester.run('emotion-styled-variables-naming', EmotionStyledVariablesNamingTest, 
         {
             code: 'const StyledHamburger = styled.section()',
             errors: [{ message: ERROR_MESSAGE }],
-            output: valid.styledWithMember.code
+            output: valid[1].code
         },
         {
             code: 'const StyledHamburger = styled.section``',
             errors: [{ message: ERROR_MESSAGE }],
-            output: 'const HamburgerStyled = styled.section``'
+            output: valid[2].code
+        },
+        {
+            code: 'const StyledHamburger = styled(Container)``',
+            errors: [{ message: ERROR_MESSAGE }],
+            output: valid[3].code
         }
     ]
 })

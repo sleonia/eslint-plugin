@@ -4,7 +4,8 @@ import type {
     Identifier,
     VariableDeclarator,
     BaseNode,
-    BaseExpression
+    BaseExpression,
+    CallExpression
 } from 'estree'
 
 export const ERROR_MESSAGE =
@@ -28,12 +29,16 @@ const rule: Rule.RuleModule = {
     },
     create: (context) => {
         const isIdentifier = (
-            node: BaseNode | BaseExpression
-        ): node is Identifier => node.type === 'Identifier'
+            node: BaseNode | BaseExpression | undefined
+        ): node is Identifier => node?.type === 'Identifier'
 
         const isVariableDeclarator = (
             node: BaseNode | BaseExpression
         ): node is VariableDeclarator => node.type === 'VariableDeclarator'
+
+        const isCallExpression = (
+            node: BaseNode | BaseExpression | undefined
+        ): node is CallExpression => node?.type === 'CallExpression'
 
         const isFnNameStyled = (node: BaseNode | BaseExpression): boolean =>
             isIdentifier(node) && node.name === STYLED_FN_NAME
@@ -73,7 +78,9 @@ const rule: Rule.RuleModule = {
             },
             TaggedTemplateExpression(node) {
                 if (
-                    isFnNameStyled(node.tag) &&
+                    (isFnNameStyled(node.tag) ||
+                        (isCallExpression(node.tag) &&
+                            isFnNameStyled(node.tag.callee))) &&
                     isNodeStyledVariable(node.parent)
                 ) {
                     const id =
