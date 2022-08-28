@@ -33,6 +33,10 @@ tester.run('emotion-file-naming', EmotionFileNaming, {
                 const HamburgerStyled = styled.section()
             `,
             filename: 'valid.style.ts'
+        },
+        {
+            code: `rules = { 'sleonia/boolean-cast-style': 'error' }`,
+            filename: '.eslintrc.js'
         }
     ],
     invalid: [
