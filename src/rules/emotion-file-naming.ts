@@ -1,7 +1,6 @@
 import type { Rule } from 'eslint'
 
-export const ERROR_MESSAGE =
-    'File name must contain `.style.` when you use styled from @emotion'
+export const ERROR_MESSAGE = 'File name must contain `.style.` when you use styled from @emotion'
 
 const STYLED = 'styled'
 const EMOTION_IMPORT = `from '@emotion/${STYLED}'`
@@ -18,8 +17,7 @@ const rule: Rule.RuleModule = {
         schema: []
     },
     create: (context) => {
-        const isIncludesStyleInFileName = (fileName: string) =>
-            fileName.includes('.style.')
+        const isIncludesStyleInFileName = (fileName: string) => fileName.includes('.style.')
 
         const isIncludesStyledFnCall = (sourceText: string) =>
             sourceText.includes(`${STYLED}(`) ||
@@ -28,15 +26,12 @@ const rule: Rule.RuleModule = {
 
         return {
             Program(node) {
-                const isInludestyles = isIncludesStyleInFileName(
-                    context.getFilename()
-                )
+                const isInludestyles = isIncludesStyleInFileName(context.getFilename())
                 const sourceCode = context.getSourceCode()
                 const sourceText = sourceCode.getText()
 
                 const isUsingStyled =
-                    sourceText.includes(EMOTION_IMPORT) ||
-                    isIncludesStyledFnCall(sourceText)
+                    sourceText.includes(EMOTION_IMPORT) || isIncludesStyledFnCall(sourceText)
 
                 if (isUsingStyled && !isInludestyles) {
                     context.report({

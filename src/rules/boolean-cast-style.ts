@@ -5,9 +5,8 @@ export const ERROR_MESSAGE = 'No !! boolean cast operator 🙅'
 
 const wrapToExpression = (text: string): string => `Boolean(${text})`
 
-const isChildUnaryExpression = (
-    node: BaseNodeWithoutComments
-): node is UnaryExpression => node.type === 'UnaryExpression'
+const isChildUnaryExpression = (node: BaseNodeWithoutComments): node is UnaryExpression =>
+    node.type === 'UnaryExpression'
 
 const rule: Rule.RuleModule = {
     meta: {
@@ -42,10 +41,7 @@ const rule: Rule.RuleModule = {
                             }
 
                             const sourceCode = context.getSourceCode()
-                            const identifierName = sourceCode.getText(
-                                node.argument,
-                                -1
-                            )
+                            const identifierName = sourceCode.getText(node.argument, -1)
 
                             const newText = wrapToExpression(identifierName)
                             return [fixer.replaceTextRange(range, newText)]

@@ -18,8 +18,7 @@ const rule: Rule.RuleModule = {
     meta: {
         type: 'suggestion',
         docs: {
-            description:
-                'Make your styled-componets more explicit in code base',
+            description: 'Make your styled-componets more explicit in code base',
             category: 'Best Practices',
             url: 'https://github.com/sleonia/eslint-plugin/blob/master/docs/emotion-styled-variables-naming.md',
             recommended: true
@@ -28,9 +27,8 @@ const rule: Rule.RuleModule = {
         schema: []
     },
     create: (context) => {
-        const isIdentifier = (
-            node: BaseNode | BaseExpression | undefined
-        ): node is Identifier => node?.type === 'Identifier'
+        const isIdentifier = (node: BaseNode | BaseExpression | undefined): node is Identifier =>
+            node?.type === 'Identifier'
 
         const isVariableDeclarator = (
             node: BaseNode | BaseExpression
@@ -46,31 +44,27 @@ const rule: Rule.RuleModule = {
         const isNodeStyledVariable = (node: Node): boolean =>
             isVariableDeclarator(node) &&
             isIdentifier(node.id) &&
-            node.id.name.slice(-STYLED_VARIABLE_POSTFIX_LENGTH) !==
-                STYLED_VARIABLE_POSTFIX
+            node.id.name.slice(-STYLED_VARIABLE_POSTFIX_LENGTH) !== STYLED_VARIABLE_POSTFIX
 
         return {
             CallExpression(node) {
-                if (
-                    isFnNameStyled(node.callee) &&
-                    isNodeStyledVariable(node.parent)
-                ) {
+                if (isFnNameStyled(node.callee) && isNodeStyledVariable(node.parent)) {
                     const id =
-                        isVariableDeclarator(node.parent) &&
-                        isIdentifier(node.parent.id)
+                        isVariableDeclarator(node.parent) && isIdentifier(node.parent.id)
                             ? node.parent.id
                             : null
+
                     if (!id) {
                         return
                     }
+
                     context.report({
                         node,
                         message: ERROR_MESSAGE,
                         fix(fixer) {
                             const variabeName =
-                                id.name
-                                    .split(STYLED_VARIABLE_POSTFIX)
-                                    .join('') + STYLED_VARIABLE_POSTFIX
+                                id.name.split(STYLED_VARIABLE_POSTFIX).join('') +
+                                STYLED_VARIABLE_POSTFIX
                             return [fixer.replaceText(id, variabeName)]
                         }
                     })
@@ -79,13 +73,11 @@ const rule: Rule.RuleModule = {
             TaggedTemplateExpression(node) {
                 if (
                     (isFnNameStyled(node.tag) ||
-                        (isCallExpression(node.tag) &&
-                            isFnNameStyled(node.tag.callee))) &&
+                        (isCallExpression(node.tag) && isFnNameStyled(node.tag.callee))) &&
                     isNodeStyledVariable(node.parent)
                 ) {
                     const id =
-                        isVariableDeclarator(node.parent) &&
-                        isIdentifier(node.parent.id)
+                        isVariableDeclarator(node.parent) && isIdentifier(node.parent.id)
                             ? node.parent.id
                             : null
 
@@ -98,19 +90,15 @@ const rule: Rule.RuleModule = {
                         message: ERROR_MESSAGE,
                         fix(fixer) {
                             const variabeName =
-                                id.name
-                                    .split(STYLED_VARIABLE_POSTFIX)
-                                    .join('') + STYLED_VARIABLE_POSTFIX
+                                id.name.split(STYLED_VARIABLE_POSTFIX).join('') +
+                                STYLED_VARIABLE_POSTFIX
                             return [fixer.replaceText(id, variabeName)]
                         }
                     })
                 }
             },
             MemberExpression(node) {
-                if (
-                    isFnNameStyled(node.object) &&
-                    isNodeStyledVariable(node.parent.parent)
-                ) {
+                if (isFnNameStyled(node.object) && isNodeStyledVariable(node.parent.parent)) {
                     const id =
                         isVariableDeclarator(node.parent.parent) &&
                         isIdentifier(node.parent.parent.id)
@@ -125,9 +113,8 @@ const rule: Rule.RuleModule = {
                         message: ERROR_MESSAGE,
                         fix(fixer) {
                             const variabeName =
-                                id.name
-                                    .split(STYLED_VARIABLE_POSTFIX)
-                                    .join('') + STYLED_VARIABLE_POSTFIX
+                                id.name.split(STYLED_VARIABLE_POSTFIX).join('') +
+                                STYLED_VARIABLE_POSTFIX
                             return [fixer.replaceText(id, variabeName)]
                         }
                     })
